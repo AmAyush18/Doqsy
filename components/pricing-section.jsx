@@ -19,16 +19,16 @@ const PricingSection = () => {
   const [selectedPlan, setSelectedPlan] = useState(1); // Middle plan selected by default
   const sectionRef = useRef(null);
 
-  // Sample pricing plans - replace with your actual Pricing component data
+  // Updated pricing plans with freemium model (2 credits = 1 consultation)
   const pricingPlans = [
     {
       name: "Basic Care",
-      price: "$29",
-      period: "/month",
-      credits: "10 Credits",
-      description: "Perfect for occasional consultations",
+      price: "Free",
+      period: "",
+      credits: "2 Credits",
+      description: "Get started with 1 free consultation",
       features: [
-        "10 consultation credits",
+        "2 consultation credits (1 consultation)",
         "Basic health tracking",
         "Email support",
         "Mobile app access",
@@ -40,11 +40,11 @@ const PricingSection = () => {
     {
       name: "Health Plus",
       price: "$59",
-      period: "/month",
-      credits: "25 Credits",
+      period: "/year",
+      credits: "30 Credits",
       description: "Best value for regular healthcare",
       features: [
-        "25 consultation credits",
+        "30 consultation credits (15 consultations)",
         "Priority booking",
         "24/7 chat support",
         "Health analytics",
@@ -57,11 +57,11 @@ const PricingSection = () => {
     {
       name: "Premium Care",
       price: "$99",
-      period: "/month",
-      credits: "50 Credits",
+      period: "/year",
+      credits: "60 Credits",
       description: "Comprehensive healthcare solution",
       features: [
-        "50 consultation credits",
+        "60 consultation credits (30 consultations)",
         "Dedicated health advisor",
         "Instant specialist access",
         "Advanced health insights",
@@ -75,11 +75,11 @@ const PricingSection = () => {
   ];
 
   const creditBenefits = [
-    "Each <strong>credit equals one consultation</strong> with our healthcare professionals",
+    "Each consultation <strong>requires 2 credits</strong> - giving you full access to our healthcare professionals",
     "<strong>Credits never expire</strong> - use them at your own pace throughout the year",
     "<strong>Flexible usage</strong> - use credits for video calls, chat consultations, or phone calls",
     "<strong>Family sharing</strong> - share your credits with family members on higher plans",
-    "<strong>Specialist access</strong> - use the same credits for general practitioners or specialists",
+    "<strong>Specialist access</strong> - same 2-credit rate for general practitioners or specialists",
     "<strong>Emergency support</strong> - priority access during urgent medical situations"
   ];
 
@@ -132,6 +132,18 @@ const PricingSection = () => {
     return colors[color];
   };
 
+  const getConsultationCount = (credits) => {
+    const creditNumber = parseInt(credits.replace(' Credits', ''));
+    return creditNumber / 2;
+  };
+
+  const getPricePerConsultation = (price, credits) => {
+    if (price === "Free") return "Free";
+    const priceNumber = parseInt(price.replace('$', ''));
+    const consultations = getConsultationCount(credits);
+    return `$${(priceNumber / consultations).toFixed(0)}`;
+  };
+
   return (
     <section ref={sectionRef} id="pricing" className="px-20 py-20 bg-slate-800/30 relative overflow-hidden">
       {/* Background Elements */}
@@ -157,7 +169,7 @@ const PricingSection = () => {
           
           <p className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Flexible consultation packages designed to fit your lifestyle and healthcare needs. 
-            No hidden fees, no surprises - just transparent, quality care.
+            Start with a free consultation, then upgrade for unlimited access.
           </p>
 
           {/* Trust Indicators */}
@@ -232,7 +244,7 @@ const PricingSection = () => {
                       <span className="text-slate-400 text-lg">{plan.period}</span>
                     </div>
                     <div className="text-slate-500 text-sm mt-2">
-                      {(parseInt(plan.price.replace('$', '')) / parseInt(plan.credits.replace(' Credits', ''))).toFixed(1)}$ per consultation
+                      {getPricePerConsultation(plan.price, plan.credits)} per consultation
                     </div>
                   </div>
 
@@ -253,7 +265,7 @@ const PricingSection = () => {
                     shadow-lg hover:shadow-xl group-hover:shadow-2xl
                     flex items-center justify-center gap-2
                   `}>
-                    <span>Choose Plan</span>
+                    <span>{plan.price === "Free" ? "Start Free" : "Choose Plan"}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
 
@@ -281,7 +293,7 @@ const PricingSection = () => {
               </div>
               <p className="text-slate-300 max-w-2xl mx-auto">
                 Our flexible credit system gives you complete control over your healthcare spending. 
-                Use credits when you need them, how you need them.
+                Every consultation costs 2 credits, giving you predictable pricing.
               </p>
             </div>
 
