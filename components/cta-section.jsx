@@ -67,7 +67,7 @@ const CTASection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="px-20 py-20 relative overflow-hidden">
+    <section ref={sectionRef} className="px-20 py-20 bg-slate-800/30 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div 
           id="cta-section"
