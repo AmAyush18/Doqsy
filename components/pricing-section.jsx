@@ -28,10 +28,9 @@ const PricingSection = () => {
       credits: "2 Credits",
       description: "Get started with 1 free consultation",
       features: [
-        "2 consultation credits (1 consultation)",
+        "2 credits (1 consultation)",
         "Basic health tracking",
         "Email support",
-        "Mobile app access",
         "Prescription management"
       ],
       color: "blue",
@@ -40,11 +39,11 @@ const PricingSection = () => {
     {
       name: "Health Plus",
       price: "$59",
-      period: "/year",
-      credits: "30 Credits",
+      period: "/month",
+      credits: "10 Credits",
       description: "Best value for regular healthcare",
       features: [
-        "30 consultation credits (15 consultations)",
+        "10 credits (5 consultations)",
         "Priority booking",
         "24/7 chat support",
         "Health analytics",
@@ -57,11 +56,11 @@ const PricingSection = () => {
     {
       name: "Premium Care",
       price: "$99",
-      period: "/year",
-      credits: "60 Credits",
+      period: "/month",
+      credits: "20 Credits",
       description: "Comprehensive healthcare solution",
       features: [
-        "60 consultation credits (30 consultations)",
+        "20 credits (10 consultations)",
         "Dedicated health advisor",
         "Instant specialist access",
         "Advanced health insights",
@@ -259,7 +258,7 @@ const PricingSection = () => {
                   </div>
 
                   {/* CTA Button */}
-                  <button className={`
+                  {/* <button className={`
                     w-full ${colorClasses.button} text-white font-semibold py-4 rounded-xl
                     transition-all duration-300 hover:scale-105 hover:-translate-y-1
                     shadow-lg hover:shadow-xl group-hover:shadow-2xl
@@ -267,7 +266,7 @@ const PricingSection = () => {
                   `}>
                     <span>{plan.price === "Free" ? "Start Free" : "Choose Plan"}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </button> */}
 
                   {/* Hover Glow Effect */}
                   <div className={`

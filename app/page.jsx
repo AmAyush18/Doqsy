@@ -1,6 +1,7 @@
 import CTASection from "@/components/cta-section";
 import FeatureSection from "@/components/feature-section";
 import HeroSection from "@/components/hero-section";
+import Pricing from "@/components/pricing";
 import PricingSection from "@/components/pricing-section";
 import TestimonialsSection from "@/components/testimonial-section";
 import Image from "next/image";
@@ -12,7 +13,8 @@ export default function Home() {
 
     <FeatureSection />
     
-    <PricingSection />
+    {/* <PricingSection /> */}
+    <Pricing />
     
     <TestimonialsSection />
 
