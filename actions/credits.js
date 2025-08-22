@@ -32,7 +32,6 @@ export async function checkAndAllocateCredits(user) {
 
     // Check if user has a subscription
     const { has } = await auth();
-    console.log({has})
     // Check which plan the user has
     const hasBasic = has({ plan: "free_user" });
     const hasStandard = has({ plan: "standard" });
