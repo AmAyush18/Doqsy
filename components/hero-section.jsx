@@ -45,14 +45,14 @@ const HeroSection = () => {
       }}
     >
       {/* Animated Background Shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-3/4 left-1/2 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-      </div>
+      </div> */}
 
       {/* Floating Elements */}
-      {floatingElements.map((element, index) => {
+      {/* {floatingElements.map((element, index) => {
         const IconComponent = element.icon;
         return (
           <div
@@ -68,7 +68,7 @@ const HeroSection = () => {
             <IconComponent size={24} />
           </div>
         );
-      })}
+      })} */}
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -93,9 +93,9 @@ const HeroSection = () => {
 
             {/* Description */}
             <p className="text-slate-300 text-lg md:text-xl max-w-lg leading-relaxed">
-              Experience healthcare like never before. Book appointments instantly, 
-              consult via video, and take control of your wellness journey with our 
-              <span className="text-emerald-400 font-semibold"> AI-powered platform</span>.
+              A smarter way to manage your health. Book appointments in seconds, consult trusted doctors online, 
+              and stay in control of your care with our 
+              <span className="text-emerald-400 font-semibold"> simple, reliable healthcare platform</span>.
             </p>
 
             {/* Stats */}
